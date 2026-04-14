@@ -344,16 +344,4 @@ Z = ──────── → N(0, 1)   (in distribution)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
----
-
-## Further Reading
-
-- 📖 *Introduction to Probability and Statistics* — Mendenhall, Beaver & Beaver
-- 📖 *Probability and Statistics for Engineers and Scientists* — Walpole et al.
-- 📖 *The Elements of Statistical Learning* — Hastie, Tibshirani & Friedman
-- 🌐 [NIST/SEMATECH e-Handbook of Statistical Methods](https://www.itl.nist.gov/div898/handbook/)
-- 🌐 [Khan Academy — Normal Distribution](https://www.khanacademy.org/math/statistics-probability)
-
----
-
 *Last updated: April 2026 | Statistics Reference Notes*
