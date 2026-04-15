@@ -289,15 +289,11 @@ P(A | B) = [ P(B | A) × P(A) ] / P(B)
 6. [Z-Score](#z-score)
 7. [The Empirical Rule (68-95-99.7 Rule)](#the-empirical-rule-68-95-997-rule)
 8. [Parameters](#parameters)
-9. [Mean, Median, Mode](#mean-median-mode)
-10. [Variance and Standard Deviation](#variance-and-standard-deviation)
-11. [Skewness and Kurtosis](#skewness-and-kurtosis)
-12. [Moment Generating Function](#moment-generating-function)
-13. [Linear Combinations](#linear-combinations)
-14. [Central Limit Theorem (CLT)](#central-limit-theorem-clt)
-15. [Common Applications](#common-applications)
-16. [Key Probability Values (Z-Table Reference)](#key-probability-values-z-table-reference)
-17. [Formulas Cheat Sheet](#formulas-cheat-sheet)
+9. [Moment Generating Function](#moment-generating-function)
+10. [Linear Combinations](#linear-combinations)
+11. [Central Limit Theorem (CLT)](#central-limit-theorem-clt)
+12. [Common Applications](#common-applications)
+13. [Formulas Cheat Sheet](#formulas-cheat-sheet)
 
 ---
 
@@ -454,40 +450,6 @@ Visual representation:
 
 ---
 
-## Mean, Median, Mode
-
-For a normal distribution, all three measures of central tendency are **equal**:
-
-```
-Mean = Median = Mode = μ
-```
-
-This is a direct consequence of the distribution's perfect symmetry.
-
----
-
-## Variance and Standard Deviation
-
-| Measure | Formula | Notes |
-|---------|---------|-------|
-| Variance | `Var(X) = σ²` | Second central moment |
-| Std Deviation | `SD(X) = σ` | Square root of variance |
-| Mean Absolute Deviation | `MAD = σ√(2/π) ≈ 0.798σ` | Average absolute deviation from mean |
-
----
-
-## Skewness and Kurtosis
-
-| Measure | Value | Meaning |
-|---------|-------|---------|
-| **Skewness** | `0` | Perfectly symmetric |
-| **Excess Kurtosis** | `0` | Mesokurtic (baseline reference) |
-| **Kurtosis** | `3` | Raw kurtosis value |
-
-> The normal distribution is the **reference distribution** for kurtosis. Distributions with kurtosis > 3 are **leptokurtic** (heavier tails); < 3 are **platykurtic** (lighter tails).
-
----
-
 ## Moment Generating Function
 
 The MGF of `X ~ N(μ, σ²)` is:
@@ -553,31 +515,6 @@ Z = ──────── → N(0, 1)   (in distribution)
 | 📊 Hypothesis Testing | Z-tests, t-tests (via CLT) |
 | 🎓 Education | Standardized test scores (SAT, IQ) |
 | 🏭 Manufacturing | Dimensional tolerances |
-
----
-
-## Key Probability Values (Z-Table Reference)
-
-### One-Tailed Probabilities `P(Z ≤ z)`
-
-| z    | 0.00   | 0.01   | 0.02   | 0.03   |
-|------|--------|--------|--------|--------|
-| 0.0  | 0.5000 | 0.5040 | 0.5080 | 0.5120 |
-| 0.5  | 0.6915 | 0.6950 | 0.6985 | 0.7019 |
-| 1.0  | 0.8413 | 0.8438 | 0.8461 | 0.8485 |
-| 1.5  | 0.9332 | 0.9345 | 0.9357 | 0.9370 |
-| 2.0  | 0.9772 | 0.9778 | 0.9783 | 0.9788 |
-| 2.5  | 0.9938 | 0.9940 | 0.9941 | 0.9943 |
-| 3.0  | 0.9987 | 0.9987 | 0.9987 | 0.9988 |
-
-### Critical Z-Values for Confidence Intervals
-
-| Confidence Level | α     | α/2   | z_{α/2} |
-|-----------------|-------|-------|---------|
-| 90%             | 0.10  | 0.05  | 1.645   |
-| 95%             | 0.05  | 0.025 | 1.960   |
-| 99%             | 0.01  | 0.005 | 2.576   |
-| 99.9%           | 0.001 | 0.0005| 3.291   |
 
 ---
 
