@@ -28,4 +28,4 @@ T-test has 2 types : 1. one sampled t-test 2. two-sampled t-test.
 ##  One-sample T-test with Python
 
 The test will tell us whether means of the sample and the population are different
-![image.png](attachment:image.png)
+![alt text](image.png)
