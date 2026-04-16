@@ -18,3 +18,14 @@ A method to compare two opposite assumptions about a population using sample dat
 | **z-Test** | Compare means when population std dev is known (large samples) |
 | **ANOVA** | Compare means across three or more groups |
 | **Chi-Square Test** | Assess association between categorical variables |
+
+## T Test
+
+A t-test is a type of inferential statistic which is used to determine if there is a significant difference between the means of two groups which may be related in certain features
+
+T-test has 2 types : 1. one sampled t-test 2. two-sampled t-test.
+
+##  One-sample T-test with Python
+
+The test will tell us whether means of the sample and the population are different
+![image.png](attachment:image.png)
