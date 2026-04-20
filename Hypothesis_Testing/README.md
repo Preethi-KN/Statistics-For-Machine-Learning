@@ -39,3 +39,8 @@ The Independent Samples t Test or 2-sample t-test compares the means of two inde
 ---
 ## Paired T-test With Python
 When you want to check how different samples from the same group are, you can go for a paired T-test
+
+---
+## Chi-Square Test- 
+
+The test is applied when you have two categorical variables from a single population. It is used to determine whether there is a significant association between the two variables.
