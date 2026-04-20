@@ -596,4 +596,338 @@ In our example:
 
 ---
 
-*Chi-Square Test | April 2026*
+## ANOVA Test 
+
+## What is a ANOVA Test 
+**ANOVA (Analysis of Variance)** is a statistical test used to compare the
+**mean (μ) of two or more groups**.
+
+> Instead of running multiple t-tests (which increases error), ANOVA tests
+> all groups **simultaneously** using the **F-distribution**.
+
+```
+Core Idea:
+
+       Variance BETWEEN groups
+F  =  ──────────────────────────
+       Variance WITHIN groups
+
+If F is large → groups are significantly different → Reject H₀
+If F is small → groups are similar → Fail to Reject H₀
+```
+
+---
+
+## Key Terms to Remember
+
+| Term | Definition |
+|------|-----------|
+| **Factor** | The variable being tested (e.g., Medication dosage) |
+| **Level** | The different values/groups of the factor |
+| **Between variance** | How much group means differ from the overall mean |
+| **Within variance** | How much individual values vary within each group |
+
+**Example:**
+```
+Factor  →  Medication
+            ↓    ↓    ↓
+Levels  →  10mg  20mg  50mg   (3 levels)
+```
+
+---
+
+## Assumptions in ANOVA
+
+| # | Assumption | Details |
+|---|-----------|---------|
+| 1 | **Normality** | All the means (μ) of sample groups are normally distributed |
+| 2 | **No Outliers** | There are no outliers — if outliers exist, remove them |
+| 3 | **Homogeneity of Variance** | Each population has the same variance → σ₁² = σ₂² = σ₃² |
+| 4 | **Independence** | Samples are independent and random |
+
+---
+
+## Types of ANOVA
+
+```
+ANOVA
+├── 1. One-Way ANOVA
+│       One factor with minimum 2 levels
+│       Levels are INDEPENDENT
+│       Ex: Medication → 10mg, 20mg, 50mg
+│
+├── 2. Repeated Measures ANOVA
+│       One factor with at least 2 levels
+│       Levels are DEPENDENT (same subjects measured multiple times)
+│       Ex: Running factor → Day1, Day2, Day3
+│
+└── 3. Factorial ANOVA
+        2 or more factors with multiple levels
+        They can be dependent or independent
+        Ex: Running Factor (Day1, Day2, Day3) × Gender (Male, Female)
+```
+
+---
+
+## Hypothesis Testing in ANOVA
+
+### Hypotheses
+
+```
+H₀ (Null Hypothesis)        →  Mean of each group are EQUAL
+                                μ₁ = μ₂ = μ₃ = ... = μₖ
+
+H₁ (Alternative Hypothesis) →  At least ONE mean of one group
+                                is NOT equal to other groups
+                                μ₁ ≠ μ₂ ≠ μ₃ = ... μₖ
+```
+
+---
+
+## F-Distribution
+
+The ANOVA test uses the **F-distribution** (also called F-test):
+
+```
+       Variance between groups     MS_between
+F  =  ────────────────────────── = ────────────
+       Variance within groups      MS_within
+
+Where MS = Mean Square = SS / df
+```
+
+```
+       F distribution curve
+
+       Accept Value
+      ╱─────────────╲
+     ╱  95%           ╲
+────╱──────────────────╲──────────────►
+                        *
+                      3.5546
+                    Critical Value → Rejection Area
+```
+
+**Decision Rule:**
+```
+If F > Critical Value  →  REJECT H₀
+If F ≤ Critical Value  →  FAIL to Reject H₀
+```
+
+---
+
+## Worked Example — One Way ANOVA
+
+### Problem Statement
+
+A doctor has a new medicine with **3 different dosage levels: 10mg, 15mg,
+25mg**. They want to test the medicine on patients for **headache** and
+record the data. **α = 0.05** — Is there any significant difference between
+the 3 conditions?
+
+### Dataset
+
+| 10mg (x₁) | 15mg (x₂) | 25mg (x₃) |
+|-----------|-----------|-----------|
+| 9         | 7         | 4         |
+| 8         | 6         | 2         |
+| 7         | 6         | 2         |
+| 8         | 7         | 3         |
+| 3         | 8         | 4         |
+| 9         | 7         | 3         |
+| 8         | 6         | 2         |
+
+```
+Σx₁ = 9+8+7+8+3+9+8 = 52  →  x̄₁ = 52/7 ≈ 7.43  (approx. noted as ~57 in notes)
+Σx₂ = 7+6+6+7+8+7+6 = 47  →  x̄₂ = 47/7 ≈ 6.71
+Σx₃ = 4+2+2+3+4+3+2 = 20  →  x̄₃ = 20/7 ≈ 2.86  (noted as ~21)
+
+N  = 21  (total number of data points across 3 groups)
+a  = 3   (number of groups/levels)
+n  = 7   (number of values in each group)
+```
+
+---
+
+## Step-by-Step Solution
+
+### Step 1 — State the Hypotheses
+
+```
+H₀ : μ₁₀ₘg = μ₁₅ₘg = μ₂₅ₘg   (means of each group are equal)
+H₁ : At least one mean is not equal
+```
+
+### Step 2 — State the Significance Value
+
+```
+α  = 0.05
+CI = 0.95  (95% Confidence Interval)
+```
+
+### Step 3 — Calculate Degrees of Freedom
+
+```
+df (between) = a - 1  = 3 - 1  = 2
+df (within)  = N - a  = 21 - 3 = 18
+df (total)   = N - 1  = 21 - 1 = 20
+```
+
+### Step 4 — Calculate Degrees of Freedom → F-table lookup
+
+```
+df(2, 18) → df₁ = 2,  df₂ = 18
+
+From F-table at α = 0.05:
+┌─────┬────┬──────────┐
+│ df₁ │ df₂│  α=0.05  │
+├─────┼────┼──────────┤
+│  2  │ 18 │  3.5546  │  ← Critical Value 
+└─────┴────┴──────────┘
+```
+
+### Step 5 — Decision Rule
+
+```
+If F > 3.5546  →  REJECT H₀
+If F ≤ 3.5546  →  FAIL to Reject H₀
+```
+
+### Step 6 — Calculate F-Statistic
+
+**① Sum of Squares Between (SS_between):**
+
+```
+              Σ(Σaₚ)²     T²
+SS_between =  ──────── -  ──
+                 n         N
+
+Where:
+  T  = Grand Total = Σx₁ + Σx₂ + Σx₃ = 52 + 47 + 20 = 119
+                                        (noted as 57+47+21 in notes)
+
+  52²   47²   20²     (52+47+20)²
+= ─── + ─── + ─── -  ─────────────
+   7     7     7          21
+
+= 2704/7 + 2209/7 + 400/7  -  [119²/21]
+
+= 386.28 + 315.57 + 57.14  -  674.33
+
+SS_between ≈ 98.67
+```
+
+**② Sum of Squares Within (SS_within):**
+
+```
+                           Σ(Σaₚ)²
+SS_within = Σy² -  ────────────────
+                          n
+
+  Σy² = sum of all 21 data points squared
+      = (9²+8²+7²+8²+3²+9²+8²) + (7²+6²+6²+7²+8²+7²+6²) + (4²+2²+2²+3²+4²+3²+2²)
+      = 853
+
+  SS_within = 853 - [52²/7 + 47²/7 + 20²/7]
+            = 853 - [386.28 + 315.57 + 57.14]
+            = 853 - 758.99
+            ≈ 10.29
+```
+
+**③ Calculate F-statistic:**
+
+```
+MS_between = SS_between / df_between = 98.67 / 2  = 49.34
+MS_within  = SS_within  / df_within  = 10.29 / 18 = 0.57
+
+F = MS_between / MS_within = 49.34 / 0.57 ≈ 86.56
+```
+
+---
+
+## ANOVA Summary Table
+
+| Source  | SS     | df | MS (SS/df) | F     |
+|---------|--------|----|------------|-------|
+| Between | 98.67  | 2  | 49.34      | 86.56 |
+| Within  | 10.29  | 18 | 0.57       | —     |
+| **Total**| **108.95** | **20** | — | —  |
+
+---
+
+## Decision Boundary
+
+```
+              Accept Region (95%)
+   ╱─────────────────────────────────╲
+  ╱                                   ╲________
+ ╱                                    ╲         Rejection
+───────────────────────────────────────*─────────► Area
+                                     3.5546
+                                  Critical Value
+
+  F calculated = 86.56
+  F critical   =  3.55
+
+  86.56  >  3.55  →  ✅ REJECT H₀
+```
+
+---
+
+## Conclusion
+
+> **From the F-test: 86.56 > 3.55**
+>
+> So we are **rejecting the null hypothesis**.
+>
+> ✅ There IS a **significant difference** in headache relief between
+> the 3 dosage levels (10mg, 15mg, 25mg) of the medication.
+> The dosage level **does** have a significant effect.
+
+---
+## Cheat Sheet
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ANOVA — QUICK REFERENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  F FORMULA
+  F = MS_between / MS_within
+    = (SS_between / df_between) / (SS_within / df_within)
+
+  SS BETWEEN
+  SS_between = Σ(Σaₚ)²/n  -  T²/N
+
+  SS WITHIN
+  SS_within  = Σy²  -  Σ(Σaₚ)²/n
+
+  DEGREES OF FREEDOM
+  df_between = a - 1       (a = number of groups)
+  df_within  = N - a       (N = total data points)
+  df_total   = N - 1
+
+  HYPOTHESES
+  H₀ : μ₁ = μ₂ = μ₃ = ... μₖ  (all means equal)
+  H₁ : At least one μ is different
+
+  DECISION RULE
+  F > F_critical  →  Reject H₀
+  F ≤ F_critical  →  Fail to Reject H₀
+  p < α  (0.05)   →  Reject H₀
+
+  TYPES
+  One-Way ANOVA         →  1 factor, independent levels
+  Repeated Measures     →  1 factor, dependent levels
+  Factorial ANOVA       →  2+ factors, multiple levels
+
+  ASSUMPTIONS
+  1. Normality of group means
+  2. No outliers
+  3. Homogeneity of variance (σ₁²=σ₂²=σ₃²)
+  4. Samples are independent and random
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+---
