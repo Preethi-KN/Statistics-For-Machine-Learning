@@ -931,3 +931,246 @@ F = MS_between / MS_within = 49.34 / 0.57 ≈ 86.56
 ```
 
 ---
+## Z Test 
+
+## What is Z-Test
+
+The **Z-Test** is used in **inferential statistics** to **compare the mean
+of a population and a sample**.
+
+> It tells us whether the difference between the sample mean and the
+> population mean is **statistically significant** or just due to
+> **random chance**.
+
+---
+
+## When to Use Z-Test
+
+| Condition | Details |
+|-----------|---------|
+| **Population σ known** | Standard deviation of population is known |
+| **Sample size** | Large — more than 30 (n > 30) |
+| **Data type** | Continuous (normally distributed) |
+| **Purpose** | Compare sample mean to known population mean |
+
+```
+Use Z-Test when:
+  ✅ We KNOW the std dev (σ) of the population
+  ✅ Sample size is more than 30
+```
+
+---
+
+## Z-Test Formula
+
+```
+         x̄  -  μ
+Z  =  ────────────
+         σ / √n
+
+Where:
+  x̄  =  sample mean
+  μ   =  population mean (hypothesized)
+  σ   =  population standard deviation
+  n   =  sample size
+```
+
+---
+
+## Worked Example — Height of Residents
+
+### Problem Statement
+
+The **average height** of all residents in a city is **168 cm** with a
+population standard deviation **σ = 3.9**.
+
+A doctor believes the **mean height is different**. He measured the height
+of **36 individuals** and found the average to be **169.5 cm**.
+
+Test at **α = 0.05** — Is the doctor's belief correct?
+
+### Given Data
+
+```
+μ    =  168 cm    (population mean)
+σ    =  3.9       (population std deviation)
+n    =  36        (sample size)
+x̄    =  169.5 cm  (sample mean — group average)
+α    =  0.05
+CI   =  95%
+```
+
+---
+
+## Step-by-Step Solution
+
+### Step 1 — State the Hypotheses
+
+```
+a) H₀ (Null Hypothesis)        →  μ = 168 cm
+                                   (mean height has NOT changed)
+
+b) H₁ (Alternative Hypothesis) →  μ ≠ 168 cm
+                                   (mean height IS different)
+
+→ This is a TWO-TAILED test (≠ sign in H₁)
+```
+
+### Step 2 — Set Significance Level & Confidence Interval
+
+```
+CI  = 0.95  →  95%
+α   = 1 - CI  =  1 - 0.95  =  0.05
+
+Two-tailed → split α equally on both sides:
+  α/2  =  0.05 / 2  =  0.025  on each tail
+
+Confidence level diagram:
+  ┌──────────────────────────────────────────────┐
+  │  2.5%   │        95%         │    2.5%       │
+  │ Reject  │    Accept H₀       │    Reject     │
+  └──────────────────────────────────────────────┘
+  -1.96    168cm               +1.96
+```
+
+### Step 3 — Decision Boundary (Find Critical Z-value)
+
+```
+In Z-table we need to find 0.975 (= 1 - 0.025)
+
+  Z  │  ...  │  0.06
+ ────┼───────┼────────
+ 1.9 │  ...  │ 0.9750   →  1.9 + 0.06  =  1.96
+
+Critical Value  =  ±1.96
+
+Decision Rule:
+  If Z-test value falls BELOW  -1.96  →  Reject H₀
+  If Z-test value falls ABOVE  +1.96  →  Reject H₀
+  If -1.96 ≤ Z ≤ +1.96              →  Fail to Reject H₀
+```
+
+```
+F-distribution diagram:
+
+        accept H₀
+       ╱──────────╲
+  2.5%╱    95%     ╲2.5%
+─────*───────────────*──────►
+  -1.96   168cm   +1.96
+  Reject           Reject
+```
+
+### Step 4 — Statistical Analysis (Calculate Z-statistic)
+
+```
+         x̄  -  μ          169.5  -  168          1.5
+Z  =  ────────────  =   ──────────────────  =  ────────
+         σ / √n              3.9 / √36          3.9 / 6
+
+                         1.5
+                    =  ──────  =  2.31
+                         0.65
+```
+
+---
+
+## Z-Table Reading
+
+To find the critical Z-value for a 95% confidence level (two-tailed):
+
+```
+Step 1: α = 0.05 (two-tailed)  →  α/2 = 0.025 per tail
+Step 2: Look up 1 - 0.025 = 0.9750 in the Z-table
+
+  Z    │  0.00  │  0.06
+ ──────┼────────┼────────
+  1.9  │ 0.9713 │ 0.9750  ← found here
+                    ↑
+              1.9 + 0.06 = 1.96
+
+Critical Value  =  ±1.96
+```
+
+---
+
+## Conclusion
+
+```
+Decision Rule:
+  If Z-test is less than -1.96 OR greater than +1.96
+  → REJECT the null hypothesis (H₀)
+
+Result:
+  Z-calculated  =  2.31
+  Z-critical    =  ±1.96
+
+  |2.31|  >  1.96
+
+  ✅ REJECT H₀
+```
+
+> So **2.31 > 1.96**, we **reject the null hypothesis (H₀)**.
+>
+> The doctor's belief is **statistically supported** — the mean height
+> of the sampled residents (**169.5 cm**) is **significantly different**
+> from the claimed population mean of **168 cm** at 95% confidence level.
+
+---
+## Z-Test vs T-Test
+
+| Feature | Z-Test | T-Test |
+|---------|--------|--------|
+| **Sample size** | Large (n > 30) | Small (n < 30) |
+| **Population σ** | ✅ Known | ❌ Unknown |
+| **Distribution** | Normal (Z) | t-distribution |
+| **Critical value (α=0.05, two-tail)** | ±1.96 | Depends on df |
+| **As n → ∞** | — | t → Z |
+
+---
+
+## Cheat Sheet
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Z-TEST — QUICK REFERENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  FORMULA
+  Z = (x̄ - μ) / (σ / √n)
+
+  HYPOTHESES
+  H₀  :  μ = μ₀       (no difference)
+  H₁  :  μ ≠ μ₀       (two-tailed)
+  H₁  :  μ > μ₀       (right one-tailed)
+  H₁  :  μ < μ₀       (left one-tailed)
+
+  CRITICAL VALUES (Z-table)
+  α = 0.05  two-tailed   →  ±1.96
+  α = 0.05  one-tailed   →  ±1.645
+  α = 0.01  two-tailed   →  ±2.576
+  α = 0.01  one-tailed   →  ±2.326
+
+  CONFIDENCE INTERVAL
+  CI  =  1 - α
+  α   =  1 - CI
+  α/2 =  tail area (two-tailed)
+
+  Z-TABLE LOOKUP
+  For 95% CI, two-tailed:
+    → Look up 0.9750 in Z-table
+    → Read row 1.9, column 0.06
+    → Critical Z = 1.96
+
+  DECISION RULE
+  |Z_calc| > Z_critical  →  Reject H₀
+  |Z_calc| ≤ Z_critical  →  Fail to Reject H₀
+  p < α                  →  Reject H₀
+
+  EXAMPLE RESULT (from class notes)
+  Z = 2.31  >  1.96  →  ✅ Reject H₀
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+---
