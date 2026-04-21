@@ -1,4 +1,4 @@
-# 📦 Outliers, IQR & Box Plot — Statistics Notes
+# 📦 Outliers, IQR,Z score & Box Plot 
 
 > Notes based on handwritten class notes covering how to find outliers using
 > two methods (IQR and Z-Score), calculate IQR, construct a box plot using
