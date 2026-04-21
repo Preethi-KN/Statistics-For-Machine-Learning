@@ -10,6 +10,15 @@ A method to compare two opposite assumptions about a population using sample dat
 | **Type II Error (β)** | Failing to reject a false null hypothesis (false negative) |
 | **p-Value** | Probability of obtaining the observed results under H₀; small p → reject H₀ |
 
+**Key Terms of Hypothesis Testing**
+To understand the Hypothesis testing firstly we need to understand the key terms which are given below:
+
+|**Significance Level (α)**| How sure we want to be before saying the claim is false. Usually, we choose 0.05 (5%).|
+|**p-value**| The chance of seeing the data if the null hypothesis is true. If this is less than α, we say the claim is probably false.|
+|**Test Statistic**| A number that helps us decide if the data supports or rejects the claim.|
+|**Critical Value**| The cutoff point to compare with the test statistic.|
+|**Degrees of freedom**| A number that depends on the data size and helps find the critical value.|
+
 **Common Tests:**
 
 | Test | Purpose |
@@ -18,6 +27,46 @@ A method to compare two opposite assumptions about a population using sample dat
 | **z-Test** | Compare means when population std dev is known (large samples) |
 | **ANOVA** | Compare means across three or more groups |
 | **Chi-Square Test** | Assess association between categorical variables |
+
+**How does Hypothesis Testing work?**
+Working of Hypothesis testing involves various steps:
+
+steps_in_hypothesis_testing_
+Steps of Hypothesis Testing
+**Step 1**: Define Hypotheses:
+Null hypothesis (H₀): Assumes no effect or difference.
+Alternative hypothesis (H₁): Assumes there is an effect or difference.
+Example: Test if a new algorithm improves user engagement.
+
+Note: In this we assume that our data is normally distributed.
+
+**Step 2**: Choose significance level
+We select a significance level (usually 0.05). This is the maximum chance we accept of wrongly rejecting the null hypothesis (Type I error). It also sets the confidence needed to accept results.
+
+**Step 3**: Collect and Analyze data.
+Now we gather data this could come from user observations or an experiment. Once collected we analyze the data using appropriate statistical methods to calculate the test statistic.
+Example: We collect data on user engagement before and after implementing the algorithm. We can also find the mean engagement scores for each group.
+**Step 4**: Calculate Test Statistic
+The test statistic measures how much the sample data deviates from what we did expect if the null hypothesis were true. Different tests use different statistics:
+
+Z-test: Used when population variance is known and sample size is large.
+T-test: Used when sample size is small or population variance unknown.
+Chi-square test: Used for categorical data to compare observed vs. expected counts.
+**Step 5**: Make a Decision
+We compare the test statistic to a critical value from a statistical table or use the p-value:
+
+1. Using Critical Value:
+
+If test statistic > critical value → reject H0​.
+If test statistic ≤ critical value → fail to reject H0​.
+2. Using P-value:
+
+If p-value ≤ α → reject H0​.
+If p-value > α → insufficient evidence to reject H0​, not proof that H0​ is true.
+Example: If p-value is 0.03 and α is 0.05, we reject the null hypothesis because 0.03 < 0.05.
+---
+
+```
 
 ## T Test
 
@@ -1174,3 +1223,11 @@ Result:
 ```
 
 ---
+## Further Reading
+
+- 🌐 [Hypothesis Testing](https://www.geeksforgeeks.org/software-testing/understanding-hypothesis-testing/)
+- 🌐 [scipy.stats.norm](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html)
+
+---
+
+*Class Notes — Hypothesis-Test | April 2026*
